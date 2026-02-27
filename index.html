@@ -1,37 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotelli | Massas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"">
+    <title>Rotteli | Tradição Italiana</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header class="navbar">
         <div class="logo">Rotelli</div>
+        
         <nav>
             <ul class="nav-links">
                 <li><a href="#hero">Início</a></li>
-                <li><a href="#sobre">Sobre nós</a></li>
-                <li><a href="#segredo">Nosso segredo</a></li>
-                <li><a href="#cardapio">Cardapio</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#segredo">Nosso Segredo</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
             </ul>
         </nav>
+
+        <div class="social-links">
+            <a href="https://api.whatsapp.com/send/?phone=5547991581015&text=Ol%C3%A1%2C+gostaria+de+informa%C3%A7%C3%B5es+dos+produtos+de+voc%C3%AAs.+&type=phone_number&app_absent=0" target="_blank" title="Peça pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+            <a href="https://www.facebook.com/RotelliMassas" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/rotelli_massas" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linktr.ee/rotellimassas" target="_blank" aria-label="Linktree"><i class="fa-solid fa-link"></i></a>
+        </div>
     </header>
 
     <main>
         <section id="hero" class="hero-section">
             <div class="hero-content">
-                <h1>A autêtica Massa Italiana</h1>
+                <h1>A Autêntica Massa Italiana</h1>
                 <p>Feita à mão, todos os dias, com amor e farinha 00.</p>
-                <a href="#cardapio" class="btn-primeiro">Ver o Cardapio</a>
+                <a href="#cardapio" class="btn-primario">Ver o Cardápio</a>
             </div>
         </section>
 
-        <section>
-            
+        <section id="sobre" class="section-light">
+            <div class="container sobre-container">
+                <div class="sobre-imagem">
+                    <img src="https://images.unsplash.com/photo-1595295333158-4742f28fbd85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Massa fresca sendo preparada à mão">
+                </div>
+                <div class="sobre-texto">
+                    <h2 class="titulo-secao">Nossa História</h2>
+                    <p>A <strong>Rotelli</strong> No  coração da bela cidade de Balneário Camboriú (SC), em 2008, nasceu a Rotelli Massas – uma empresa familiar com um amor ardente 
+                        pela autêntica culinária italiana. Este amor se transformou em uma missão para compartilhar a verdadeira arte da massa artesanal com restaurantes, hotéis, eventos, 
+                        padarias, pastelarias e delivery para o litoral catarinense.</p>
+                </div>
+            </div>
         </section>
+
+        <section id="segredo" class="section-dark">
+            <div class="container segredo-container">
+                <i class="fa-solid fa-quote-left aspas-icone"></i>
+                <h2 class="titulo-secao-claro">O Segredo da Rotelli</h2>
+                <p class="citacao">"Nosso cardápio é um reflexo de nossa paixão pela massa caseira. Oferecemos uma 
+                    variedade de massas que vão desde as mais tradicionais até as mais inovadoras, todas feitas com muito cuidado e atenção aos detalhes.
+Desde o primeiro dia, nosso objetivo tem sido o mesmo: trazer o sabor autêntico da Itália para as mesas de Santa Catarina , unindo tradição e inovação de 
+uma maneira que apenas a Rotelli Massas sabe fazer."</p>
+                <p class="assinatura">- Fundador Rotelli</p>
+            </div>
+        </section>
+
+        <section id="cardapio" class="cardapio-massas">
+  
+  <div class="massa-card">
+    <img src="URL_DA_SUA_IMAGEM_CAPELETTI.jpg" alt="Prato de Capeletti" class="massa-img">
+    <h2 class="massa-titulo">Capeletti</h2>
+    <p class="massa-descricao">Massa artesanal com recheios saborosos.</p>
+
+    <div class="recheios-linha">
+      <div class="recheio">
+        <h4 class="recheio-nome">Frango</h4>
+        <p class="recheio-desc">Recheio leve e saboroso de frango.</p>
+      </div>
+      <div class="recheio">
+        <h4 class="recheio-nome">Carne</h4>
+        <p class="recheio-desc">Recheio de carne marcante e suculento.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="massa-card">
+    <img src="URL_DA_SUA_IMAGEM_RAVIOLI.jpg" alt="Prato de Ravioli" class="massa-img">
+    <h2 class="massa-titulo">Ravioli</h2>
+    <p class="massa-descricao">Massa delicada com recheios variados.</p>
+
+    <div class="recheios-linha">
+      <div class="recheio">
+        <h4 class="recheio-nome">Carne</h4>
+        <p class="recheio-desc">Experiência gastronômica robusta e intensa.</p>
+      </div>
+      <div class="recheio">
+        <h4 class="recheio-nome">Frango</h4>
+        <p class="recheio-desc">Combinação leve e saborosa com frango.</p>
+      </div>
+      <div class="recheio">
+        <h4 class="recheio-nome">Queijo</h4>
+        <p class="recheio-desc">Recheio cremoso de queijos selecionados.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="massa-card">
+    <img src="URL_DA_SUA_IMAGEM_NHOQUE.jpg" alt="Prato de Nhoque" class="massa-img">
+    <h2 class="massa-titulo">Nhoque</h2>
+    <p class="massa-descricao">Massa macia e saborosa.</p>
+
+    <div class="recheios-linha">
+      <div class="recheio">
+        <h4 class="recheio-nome">Tradicional</h4>
+        <p class="recheio-desc">Deliciosa massa de batata derretendo na boca.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="massa-card">
+    <img src="URL_DA_SUA_IMAGEM_CANELONES.jpg" alt="Prato de Canelones" class="massa-img">
+    <h2 class="massa-titulo">Canelones</h2>
+    <p class="massa-descricao">Massa enrolada com recheios clássicos.</p>
+
+    <div class="recheios-linha">
+      <div class="recheio">
+        <h4 class="recheio-nome">Presunto e Queijo</h4>
+        <p class="recheio-desc">Combinação tradicional e deliciosa.</p>
+      </div>
+      <div class="recheio">
+        <h4 class="recheio-nome">Carne</h4>
+        <p class="recheio-desc">Recheio suculento com molho especial.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="massa-card">
+    <img src="URL_DA_SUA_IMAGEM_PIROG.jpg" alt="Prato de Pirog de Ricota" class="massa-img">
+    <h2 class="massa-titulo">Pirog de Ricota</h2>
+    <p class="massa-descricao">Massa com inspiração no leste europeu.</p>
+
+    <div class="recheios-linha">
+      <div class="recheio">
+        <h4 class="recheio-nome">Tradicional</h4>
+        <p class="recheio-desc">Recheio leve e temperado de ricota fresca.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="massa-card">
+    <img src="URL_DA_SUA_IMAGEM_TORTEI.jpg" alt="Prato de Tortei de Abóbora" class="massa-img">
+    <h2 class="massa-titulo">Tortei de Abóbora</h2>
+    <p class="massa-descricao">O equilíbrio perfeito entre o doce e o salgado.</p>
+
+    <div class="recheios-linha">
+      <div class="recheio">
+        <h4 class="recheio-nome">Clássico</h4>
+        <p class="recheio-desc">Recheio cremoso de abóbora cabotiá com especiarias.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
     </main>
+
+    <footer class="footer-completo">
+        <div class="container footer-container">
+            <div class="footer-coluna">
+                <h4><i class="fa-solid fa-location-dot"></i> Onde Estamos</h4>
+                <p>R. Apiuna, 486<br>Municípios, Balneário Camboriú - SC, 88337-510</p>
+            </div>
+            
+            <div class="footer-coluna">
+                <h4><i class="fa-brands fa-whatsapp"></i> Contato</h4>
+                <p>WhatsApp: (47) 99158-1015<br>Email: rotellimassas@gmail.com</p>
+            </div>
+            
+            <div class="footer-coluna">
+                <h4><i class="fa-regular fa-clock"></i> Horário de Funcionamento</h4>
+                <p>Terça a Sexta: 18h às 23h<br>Sáb e Dom: 12h às 16h | 19h às 23h</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rotelli. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

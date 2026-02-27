@@ -1,0 +1,394 @@
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Rolagem suave entre as seções */
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #FAF8F5; /* Fundo creme elegante */
+    color: #333333;
+}
+
+h1, h2, h3, h4, .logo, .assinatura {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 100px 0; /* Espaçamento padrão para todas as seções */
+}
+
+.titulo-secao {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #8B0000; /* Vermelho vinho */
+}
+
+/* =========================================
+   BARRA DE NAVEGAÇÃO (NAVBAR) E REDES SOCIAIS
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #FAF8F5;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #8B0000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #8B0000;
+}
+
+.btn-destaque {
+    background-color: #556B2F; /* Verde oliva */
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-destaque:hover {
+    background-color: #445525;
+}
+
+/* Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-links a {
+    color: #333333;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+.social-links a[aria-label="Facebook"]:hover { color: #1877F2; }
+.social-links a[aria-label="Instagram"]:hover { color: #E4405F; }
+.social-links a[aria-label="Linktree"]:hover { color: #43E660; }
+
+/* =========================================
+   HERO BANNER (INÍCIO)
+   ========================================= */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://img.freepik.com/fotos-premium/varios-tipos-de-massas-italianas_702159-4705.jpg?w=2000') center/cover;
+    color: white;
+    padding-top: 80px; /* Compensa a navbar fixa */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.btn-primario {
+    text-decoration: none;
+    background-color: #8B0000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.btn-primario:hover {
+    background-color: #660000;
+}
+
+/* =========================================
+   SEÇÃO SOBRE NÓS
+   ========================================= */
+.sobre-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.sobre-imagem {
+    flex: 1;
+    min-width: 300px;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.sobre-texto {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.sobre-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* =========================================
+   SEÇÃO NOSSO SEGREDO
+   ========================================= */
+.section-dark {
+    background: linear-gradient(rgba(40, 40, 40, 0.9), rgba(40, 40, 40, 0.9)), url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+    color: white;
+    text-align: center;
+}
+
+.segredo-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.titulo-secao-claro {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #FAF8F5;
+}
+
+.aspas-icone {
+    font-size: 3rem;
+    color: #556B2F;
+    margin-bottom: 20px;
+}
+
+.citacao {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.assinatura {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8B0000;
+}
+
+/* Container que organiza as massas na tela (lado a lado no PC) */
+.cardapio-massas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px; /* Espaço entre o Capeletti e o Ravioli */
+  padding: 40px 20px;
+  font-family: 'Times New Roman', Times, serif; /* Ajuste se usar uma fonte web específica */
+  background-color: #fbf9f6; /* Cor de fundo creme aproximada da sua imagem */
+}
+
+/* O cartão que centraliza a imagem e os textos de cada massa */
+.massa-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* A mágica que centraliza tudo! */
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Estilo das imagens redondas */
+.massa-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Nome da Massa (Capeletti, Ravioli...) com a linha verde */
+.massa-titulo {
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #4f6e42; /* O sublinhado verde escuro */
+  display: inline-block;
+}
+
+/* Descrição logo abaixo do nome da massa */
+.massa-descricao {
+  font-style: italic;
+  color: #444;
+  font-size: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Container para alinhar os recheios na horizontal */
+.recheios-linha {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 20px; /* Espaço lateral entre Frango, Carne e Queijo */
+  width: 100%;
+}
+
+/* Caixinha individual de cada recheio */
+.recheio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 130px; /* Deixa eles fininhos para caberem vários na mesma linha */
+}
+
+/* O título do recheio em vermelho */
+.recheio-nome {
+  color: #b52a2a; /* A cor vermelha do seu site */
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+/* A descrição menorzinha de cada recheio */
+.recheio-desc {
+  font-style: italic;
+  color: #666;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* =========================================
+   RODAPÉ (FOOTER) COMPLETO
+   ========================================= */
+.footer-completo {
+    background-color: #222222; /* Cinza bem escuro, quase preto */
+    color: #FAF8F5;
+    padding-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que as colunas quebrem no celular */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-coluna {
+    flex: 1; /* Faz as 3 colunas terem a mesma largura no computador */
+    min-width: 250px; /* Garante que não fiquem muito finas antes de ir pro celular */
+    text-align: center;
+}
+
+.footer-coluna h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #556B2F; /* Verde oliva elegante para os títulos do rodapé */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.footer-coluna p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #cccccc; /* Cinza claro para leitura confortável no fundo escuro */
+}
+
+.footer-bottom {
+    background-color: #111111; /* Fundo um pouco mais escuro para a faixa final */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+/* =========================================
+   RESPONSIVIDADE (Telas Menores)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .titulo-secao, .titulo-secao-claro {
+        font-size: 2rem;
+    }
+
+    .citacao {
+        font-size: 1.2rem;
+    }
+}
