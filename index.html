@@ -18,10 +18,10 @@
         
         <nav>
             <ul class="nav-links">
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#segredo">Nosso Segredo</a></li>
-                <li><a href="#cardapio">Produtos</a></li>
+                <li><a href="#hero" class="nav-link">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+                <li><a href="#segredo" class="nav-link">Nosso Segredo</a></li>
+                <li><a href="#cardapio" class="nav-link">Produtos</a></li>
             </ul>
         </nav>
 
@@ -39,8 +39,8 @@
         <section id="hero" class="hero-section efeito-fade">
             <div class="hero-content">
                 <h1>A Autêntica Massa Italiana</h1>
-                <p>Feita à mão, todos os dias, com amor e farinha 00.</p>
-                <a href="#cardapio" class="btn-primario">Ver o Cardápio</a>
+                <p>Feita à mão, todos os dias, com amor e farinha.</p>
+                <a href="#cardapio" class="btn-primario">Ver produtos</a>
             </div>
         </section>
 
@@ -154,7 +154,7 @@
 
   <div class="massa-card">
     <img src="https://cms-bomgourmet.s3.amazonaws.com/bomgourmet%2F2023%2F05%2F04231346%2F1-1.jpg" alt="Prato de Pirog de Ricota" class="massa-img">
-    <h2 class="massa-titulo">Pirog de Ricota</h2>
+    <h2 class="massa-titulo">Pierogi de Ricota</h2>
     <p class="massa-descricao">Massa com inspiração no leste europeu.</p>
 
     <div class="recheios-linha">
@@ -226,5 +226,45 @@
     elementosEscondidos.forEach((el) => observer.observe(el));
   });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Pega todas as seções que têm ID e todos os links com a classe nav-link
+    const secoes = document.querySelectorAll("section[id], header[id], div[id]");
+    const linksMenu = document.querySelectorAll(".nav-link");
+
+    function atualizaLinhaMenu() {
+      // Posição atual da rolagem
+      let scrollY = window.pageYOffset;
+      let idAtual = "";
+
+      secoes.forEach((secao) => {
+        const alturaSecao = secao.offsetHeight;
+        // Subtrai 150 pixels para compensar o tamanho do seu navbar fixo
+        const topoSecao = secao.offsetTop - 150; 
+
+        // Se passamos do topo da seção, mas ainda não chegamos no fim dela
+        if (scrollY >= topoSecao && scrollY < topoSecao + alturaSecao) {
+          idAtual = secao.getAttribute("id");
+        }
+      });
+
+      // Se achou uma seção, acende o link correspondente
+      if (idAtual !== "") {
+        linksMenu.forEach((link) => {
+          link.classList.remove("ativo");
+          if (link.getAttribute("href") === "#" + idAtual) {
+            link.classList.add("ativo");
+          }
+        });
+      }
+    }
+
+    // Ativa quando rola a tela e também logo que a página carrega
+    window.addEventListener("scroll", atualizaLinhaMenu);
+    atualizaLinhaMenu(); 
+  });
+</script>
+
 </body>
 </html>

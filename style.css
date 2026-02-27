@@ -118,7 +118,7 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://img.freepik.com/fotos-premium/varios-tipos-de-massas-italianas_702159-4705.jpg?w=2000') center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://rotellimassas.com/wp-content/uploads/2024/11/IMG_2431_jpg.jpg') center/cover;
     color: white;
     padding-top: 80px; /* Compensa a navbar fixa */
 }
@@ -140,7 +140,7 @@ section {
     color: white;
     padding: 15px 30px;
     font-size: 1.2rem;
-    border-radius: 5px;
+    border-radius: 35px;
     transition: background 0.3s;
     font-weight: bold;
 }
@@ -403,3 +403,27 @@ section {
     }
 }
 
+.nav-link {
+position: relative;
+text-decoration: none;
+color: #1a1a1a;
+padding-bottom: 5px;
+font-weight: bold;
+}
+
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 3px;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+background-color: #4f6e42;
+transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.ativo::after {
+width: 100%;
+}
