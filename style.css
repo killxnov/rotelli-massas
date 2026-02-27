@@ -276,14 +276,50 @@ section {
 }
 
 /* =========================================
-   RODAPÉ (FOOTER)
+   RODAPÉ (FOOTER) COMPLETO
    ========================================= */
-footer {
-    background-color: #333;
+.footer-completo {
+    background-color: #222222; /* Cinza bem escuro, quase preto */
     color: #FAF8F5;
+    padding-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que as colunas quebrem no celular */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-coluna {
+    flex: 1; /* Faz as 3 colunas terem a mesma largura no computador */
+    min-width: 250px; /* Garante que não fiquem muito finas antes de ir pro celular */
     text-align: center;
-    padding: 30px 0;
+}
+
+.footer-coluna h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #556B2F; /* Verde oliva elegante para os títulos do rodapé */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.footer-coluna p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #cccccc; /* Cinza claro para leitura confortável no fundo escuro */
+}
+
+.footer-bottom {
+    background-color: #111111; /* Fundo um pouco mais escuro para a faixa final */
+    text-align: center;
+    padding: 20px 0;
     font-size: 0.9rem;
+    color: #888888;
 }
 
 /* =========================================
