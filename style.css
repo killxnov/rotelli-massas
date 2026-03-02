@@ -31,7 +31,7 @@ section {
 .titulo-secao {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 30px; /* Diminuí o espaço entre o título e o conteúdo de 50 pra 30px */
     color: #8B0000; /* Vermelho vinho */
 }
 
@@ -209,9 +209,8 @@ section {
     margin-bottom: 20px;
 }
 
-.citacao {
+.citacao { /* Removi fonte italic e deixei só o estilo normal, pra ficar mais legível */
     font-size: 1.5rem;
-    font-style: italic;
     line-height: 1.6;
     margin-bottom: 30px;
     color: #ddd;
@@ -220,27 +219,136 @@ section {
 .assinatura {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #8B0000;
+    color: #556B2F;
 }
 
-/* Container que organiza as massas na tela (lado a lado no PC) */
+/* =========================================
+   CARROSSEL INFINITO (CARDÁPIO)
+   ========================================= */
 .cardapio-massas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px; /* Espaço entre o Capeletti e o Ravioli */
-  padding: 40px 20px;
-  font-family: 'Times New Roman', Times, serif; /* Ajuste se usar uma fonte web específica */
-  background-color: #fbf9f6; /* Cor de fundo creme aproximada da sua imagem */
+  background-color: #fbf9f6;
+  padding: 60px 0;
+  overflow: hidden; /* Esconde as massas que estão fora da tela */
+  width: 100%;
+  position: relative;
 }
 
-/* O cartão que centraliza a imagem e os textos de cada massa */
+/* =========================================
+   CARROSSEL ESTILO STREAMING (CARDÁPIO)
+   ========================================= */
+.cardapio-massas {
+  background-color: #fbf9f6;
+  padding: 80px 0;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Esconde a barra de rolagem nativa, mas mantém o scroll funcional */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px; /* Dá espaço para a sombra das imagens não cortar */
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
+}
+
+/* A MATEMÁTICA DO CORTE:
+  No PC, exibimos 4.5 itens por vez.
+  (100% dividido por 4.5, menos o gap de 20px)
+*/
+.massa-card {
+  flex: 0 0 calc((100% / 4.5) - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.massa-card:hover {
+  transform: scale(1.02); /* Efeitinho de pular levemente ao passar o mouse */
+}
+
+.btn-ver-mais {
+  color: #8B0000;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+.massa-card:hover .btn-ver-mais {
+  transform: translateX(5px); /* Setinha anda um pouco pro lado no hover */
+}
+
+/* =========================================
+   BOTÕES DO CARROSSEL (SETAS)
+   ========================================= */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #556B2F; /* Verde oliva */
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-btn:hover {
+  background-color: #8B0000; /* Fica vermelho vinho ao passar o mouse */
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: 30px; }
+.next-btn { right: 30px; }
+
+/* =========================================
+   RESPONSIVIDADE DO CORTE (Tablet e Celular)
+   ========================================= */
+@media (max-width: 1024px) {
+  /* Tablet: Mostra 2.5 itens */
+  .massa-card { flex: 0 0 calc((100% / 2.5) - 20px); }
+  .prev-btn { left: 10px; }
+  .next-btn { right: 10px; }
+}
+
+@media (max-width: 600px) {
+  /* Celular: Mostra 1.5 itens (Foco total em 1 produto + metade do próximo) */
+  .massa-card { flex: 0 0 calc((100% / 1.5) - 20px); }
+  /* Esconde as setas no celular, pois o usuário usa o dedo (swipe) naturalmente */
+  .carousel-btn { display: none; }
+}
+
+/* O cartão de cada massa */
 .massa-card {
   display: flex;
   flex-direction: column;
-  align-items: center; /* A mágica que centraliza tudo! */
-  width: 100%;
-  max-width: 450px;
+  align-items: center;
+  width: 380px; /* Largura fixa para que fiquem todos iguais e alinhados */
+  flex-shrink: 0; /* Impede que o navegador amasse as fotos em telas menores */
 }
 
 /* Estilo das imagens redondas */
@@ -301,7 +409,6 @@ section {
 
 /* A descrição menorzinha de cada recheio */
 .recheio-desc {
-  font-style: italic;
   color: #666;
   font-size: 13px;
   margin: 0;
@@ -426,4 +533,83 @@ transition: width 0.3s ease-in-out;
 .nav-link:hover::after,
 .nav-link.ativo::after {
 width: 100%;
+}
+
+/* =========================================
+   ESTILOS DO MODAL (Cartão Pop-up)
+   ========================================= */
+.modal-overlay {
+  display: none; /* Garante que nasça 100% invisível e não ocupe espaço */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fundo escurecido */
+  backdrop-filter: blur(8px); /* Efeito de desfoque/blur no fundo da página */
+  z-index: 9999; /* Garante que fique por cima de tudo, inclusive do menu fixo */
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* A classe que o JavaScript vai adicionar quando clicarmos no produto */
+.modal-overlay.ativo {
+  display: flex; /* Faz o modal aparecer e centraliza o conteúdo */
+  animation: fadeIn 0.3s ease-out; /* Suaviza a entrada */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content {
+  background-color: #FAF8F5; /* Mesma cor creme do seu site */
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.fechar-modal:hover {
+  color: #8B0000;
+}
+
+.modal-body {
+  padding: 40px 30px 30px;
+  text-align: center;
+  max-height: 85vh; /* Se a tela for pequena, cria rolagem interna */
+  overflow-y: auto;
+}
+
+.modal-img-destaque {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid #556B2F;
+}
+
+.modal-subtitulo { /* Removi a linha divisória cinza e deixei só o texto, pra ficar mais clean */
+  color: #556B2F;
+  font-family: 'Arial', serif;
+  margin: 30px 0 15px 0;
+  font-size: 1.5rem;
+  padding-bottom: 10px;
 }
