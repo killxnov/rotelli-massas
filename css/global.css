@@ -44,7 +44,7 @@ body {
     font-family: 'Gantari', sans-serif;
     background-color: var(--bg-principal); 
     color: var(--texto-padrao);
-      font-weight: 200;
+    font-weight: 200;
     font-style: normal;
 }
 
@@ -119,11 +119,11 @@ section.efeito-fade {
 
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 80px;
+        scroll-padding-top: 170px;
     }
 
     section {
-        padding: 100px 0;
+        padding: 60px 0;
     }
     .titulo-secao {
         font-size: 2rem;
