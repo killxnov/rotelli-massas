@@ -207,7 +207,7 @@
 .modal-content {
     background: rgba(250, 248, 245, 0.75); 
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); 
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -255,6 +255,39 @@
     margin: 30px 0 15px 0;
     font-size: 1.5rem;
     padding-bottom: 10px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 40px;
+    position: absolute;
+    bottom: -40px; /* Coloca os pontinhos abaixo do carrossel */
+    left: 0;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #d1cbbd; /* Uma cor neutra combinando com a massa */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* O pontinho ativo estica virando uma pílula chique */
+.dot.ativo {
+    background-color: var(--cor-primaria);
+    width: 30px; 
+    border-radius: 10px;
+}
+
+/* Garante que a wrapper tenha espaço extra em baixo para os pontinhos */
+.carousel-wrapper {
+    margin-bottom: 50px; 
 }
 
 /* ----- RESPONSIVIDADE ----- */

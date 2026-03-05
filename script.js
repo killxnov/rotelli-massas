@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
 /* ----- OBSERVER ANIMACAO FADE ----- */
 
-    const observer = new IntersectionObserver((entries) => {
+    const observerFade = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visivel');
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const elementosEscondidos = document.querySelectorAll('.efeito-fade');
-    elementosEscondidos.forEach((el) => observer.observe(el));
+    elementosEscondidos.forEach((el) => observerFade.observe(el));
 
 /* ----- NAVEGAÇÃO ATIVA NO SCROLL ----- */
 
@@ -48,17 +48,59 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", atualizaLinhaMenu);
     atualizaLinhaMenu(); 
 
-/* ----- CARROSSEL DE PRODUTOS ----- */
+/* ----- CARROSSEL DE PRODUTOS: VARIÁVEIS ----- */
 
     const track = document.getElementById('track-massas');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const wrapper = document.querySelector('.carousel-wrapper');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const sectionCardapio = document.getElementById('cardapio');
     
     let autoScrollTimer;
 
+/* ----- LÓGICA DE DOTS INTELIGENTES (PAGINAÇÃO) ----- */
+
+    function gerarDotsInteligentes() {
+        if (!dotsContainer || !track) return;
+        
+        dotsContainer.innerHTML = ''; 
+        const larguraVisivel = track.clientWidth;
+        const larguraTotal = track.scrollWidth;
+        
+        // Calcula quantas "páginas" existem baseadas no tamanho da tela
+        const numPaginas = Math.ceil(larguraTotal / larguraVisivel);
+
+        for (let i = 0; i < numPaginas; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('ativo');
+            
+            dot.addEventListener('click', () => {
+                track.scrollTo({ left: i * larguraVisivel, behavior: 'smooth' });
+                reiniciarAutoScroll();
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function atualizarDotAtivo() {
+        const dots = document.querySelectorAll('.dot');
+        if (!dots.length) return;
+
+        const larguraVisivel = track.clientWidth;
+        // O índice é baseado na posição da borda esquerda do carrossel
+        const indicePagina = Math.round(track.scrollLeft / larguraVisivel);
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('ativo', i === indicePagina);
+        });
+    }
+
+/* ----- CONTROLE DE MOVIMENTO ----- */
+
     function scrollCarousel(direcao) {
-      if(!track) return; // Evita erro se a seção não existir
+      if(!track) return;
       const larguraRolagem = track.clientWidth; 
       const scrollMaximo = track.scrollWidth - track.clientWidth;
 
@@ -88,20 +130,52 @@ document.addEventListener("DOMContentLoaded", function() {
       clearInterval(autoScrollTimer);
     }
 
-    function acaoBotao(direcao) {
-      scrollCarousel(direcao);
+    function reiniciarAutoScroll() {
+      stopAutoScroll();
       startAutoScroll(); 
     }
 
     if(nextBtn && prevBtn) {
-        nextBtn.addEventListener('click', () => acaoBotao('next'));
-        prevBtn.addEventListener('click', () => acaoBotao('prev'));
+        nextBtn.addEventListener('click', () => {
+            scrollCarousel('next');
+            reiniciarAutoScroll();
+        });
+        prevBtn.addEventListener('click', () => {
+            scrollCarousel('prev');
+            reiniciarAutoScroll();
+        });
         
         wrapper.addEventListener('mouseenter', stopAutoScroll); 
         wrapper.addEventListener('mouseleave', startAutoScroll); 
         wrapper.addEventListener('touchstart', stopAutoScroll, { passive: true });  
         wrapper.addEventListener('touchend', startAutoScroll, { passive: true });   
-        
+    }
+
+    // Eventos de Scroll e Resize para os dots
+    track.addEventListener('scroll', atualizarDotAtivo);
+    window.addEventListener('resize', () => {
+        gerarDotsInteligentes();
+        atualizarDotAtivo();
+    });
+
+    // Inicializa os dots
+    gerarDotsInteligentes();
+
+/* ----- SENSOR INTELIGENTE DE TELA ----- */
+
+    if (sectionCardapio) {
+        const observerVisibilidade = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoScroll();
+                } else {
+                    stopAutoScroll();
+                }
+            });
+        }, { threshold: 0.2 }); 
+
+        observerVisibilidade.observe(sectionCardapio);
+    } else {
         startAutoScroll();
     }
 
@@ -109,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const modal = document.getElementById('modal-produto');
     const btnFechar = document.querySelector('.fechar-modal');
-    const cartoesMassa = document.querySelectorAll('.massa-card');
+    const cartoesMassa = document.querySelectorAll('.massa-card'); 
 
     const modalImg = document.getElementById('modal-img');
     const modalTitulo = document.getElementById('modal-titulo');
@@ -126,19 +200,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
             modal.classList.add('ativo');
             document.body.style.overflow = 'hidden'; 
+            stopAutoScroll(); 
           });
         });
 
-        btnFechar.addEventListener('click', () => {
-          modal.classList.remove('ativo');
-          document.body.style.overflow = 'auto'; 
-        });
-
-        modal.addEventListener('click', (evento) => {
-          if (evento.target === modal) {
+        const fecharModalFunc = () => {
             modal.classList.remove('ativo');
-            document.body.style.overflow = 'auto';
-          }
+            document.body.style.overflow = 'auto'; 
+            startAutoScroll();
+        };
+
+        btnFechar.addEventListener('click', fecharModalFunc);
+        modal.addEventListener('click', (evento) => {
+          if (evento.target === modal) fecharModalFunc();
         });
     }
 });
