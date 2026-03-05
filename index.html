@@ -6,15 +6,21 @@
     <title>Rotelli | Tradição Italiana</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="logo">Rotelli</div>
+        <a href="#hero" class="logo">
+          <img src="https://rotellimassas.com/wp-content/uploads/2024/07/logo.png" alt="logo rotelli">
+        </a>
         
         <nav>
             <ul class="nav-links">
@@ -27,8 +33,8 @@
 
         <div class="social-links">
             <a href="https://api.whatsapp.com/send/?phone=5547991581015&text=Ol%C3%A1%2C+gostaria+de+informa%C3%A7%C3%B5es+dos+produtos+de+voc%C3%AAs.+&type=phone_number&app_absent=0" target="_blank" title="Peça pelo WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+                <i class="fab fa-whatsapp"></i>
+            </a>
             <a href="https://www.facebook.com/RotelliMassas" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/rotelli_massas" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://linktr.ee/rotellimassas" target="_blank" aria-label="Linktree"><i class="fa-solid fa-link"></i></a>
@@ -36,8 +42,8 @@
     </header>
 
     <main>
-        <section id="hero" class="hero-section efeito-fade">
-            <div class="hero-content">
+        <section id="hero" class="hero-section">
+            <div class="hero-content efeito-fade">
                 <h1>A Autêntica Massa Italiana</h1>
                 <p>Feita à mão, todos os dias, com amor e farinha.</p>
                 <a href="#cardapio" class="btn-primario">Ver produtos</a>
@@ -51,145 +57,132 @@
                 </div>
                 <div class="sobre-texto">
                     <h2 class="titulo-secao">Nossa História</h2>
-                    <p>A <strong>Rotelli</strong> No  coração da bela cidade de Balneário Camboriú (SC), em 2008, nasceu a Rotelli Massas – uma empresa familiar com um amor ardente 
-                        pela autêntica culinária italiana. Este amor se transformou em uma missão para compartilhar a verdadeira arte da massa artesanal com restaurantes, hotéis, eventos, 
-                        padarias, pastelarias e delivery para o litoral catarinense.
-                    </p>
-                    <p>
-                      Nossa história é temperada com tradição e inovação .
-                        Somos uma empresa familiar, mas isso não nos impede de 
-                        abraçar o novo. Investimos em maquinário moderno para garantir 
-                        que cada lote de massa que produzimos seja de qualidade excepcional.
-                    </p>
-                    <p>
-                      E como em qualquer boa receita, o segredo está nos ingredientes.
-                      Por isso, selecionamos cuidadosamente nossa matéria-prima, garantindo 
-                      que cada prato feito com nossas massas seja uma experiência inesquecível.
-                    </p>
+                    <p>A <strong>Rotelli</strong> No  coração da bela cidade de Balneário Camboriú (SC), em 2008, nasceu a Rotelli Massas – uma empresa familiar com um amor ardente pela autêntica culinária italiana. Este amor se transformou em uma missão para compartilhar a verdadeira arte da massa artesanal com restaurantes, hotéis, eventos, padarias, pastelarias e delivery para o litoral catarinense.</p>
+                    <p>Nossa história é temperada com tradição e inovação. Somos uma empresa familiar, mas isso não nos impede de abraçar o novo. Investimos em maquinário moderno para garantir que cada lote de massa que produzimos seja de qualidade excepcional.</p>
+                    <p>E como em qualquer boa receita, o segredo está nos ingredientes. Por isso, selecionamos cuidadosamente nossa matéria-prima, garantindo que cada prato feito com nossas massas seja uma experiência inesquecível.</p>
                 </div>
             </div>
         </section>
 
-        <section id="segredo" class="section-dark efeito-fade">
-            <div class="container segredo-container">
+        <section id="segredo" class="section-dark">
+            <div class="container segredo-container efeito-fade">
                 <i class="fa-solid fa-quote-left aspas-icone"></i>
                 <h2 class="titulo-secao-claro">O Segredo da Rotelli</h2>
-                <p class="citacao">"Nosso cardápio é um reflexo de nossa paixão pela massa caseira. Oferecemos uma 
-                    variedade de massas que vão desde as mais tradicionais até as mais inovadoras, todas feitas com muito cuidado e atenção aos detalhes.
-                    Desde o primeiro dia, nosso objetivo tem sido o mesmo: trazer o sabor autêntico da Itália para as mesas de Santa Catarina , unindo tradição e inovação de 
-                    uma maneira que apenas a Rotelli Massas sabe fazer."</p>
-                <p class="assinatura">- Fundador Rotelli</p>
+                <blockquote class="citacao">
+                    "Nosso cardápio é um reflexo de nossa paixão pela massa caseira. Oferecemos uma variedade de massas que vão desde as mais tradicionais até as mais inovadoras, todas feitas com muito cuidado e atenção aos detalhes. Desde o primeiro dia, nosso objetivo tem sido o mesmo: trazer o sabor autêntico da Itália para as mesas de Santa Catarina, unindo tradição e inovação de uma maneira que apenas a Rotelli Massas sabe fazer."
+                </blockquote>
+                <cite class="assinatura">- Fundador Rotelli</cite>
             </div>
         </section>
 
         <section id="cardapio" class="cardapio-massas efeito-fade">
-  <div class="carousel-wrapper">
-    <button class="carousel-btn prev-btn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-
-    <div class="carousel-track" id="track-massas">
-      
-      <div class="massa-card">
-        <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2359_jpg.jpg" alt="Prato de Capeletti" class="massa-img">
-        <h2 class="massa-titulo">Capeletti</h2>
-        <p class="massa-descricao">Massa artesanal com recheios saborosos.</p>
-        <span class="btn-ver-mais">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
-        
-        <div class="recheios-escondidos" style="display: none;">
-          <div class="recheios-linha">
-            <div class="recheio"><h4 class="recheio-nome">Frango</h4><p class="recheio-desc">Recheio leve e saboroso.</p></div>
-            <div class="recheio"><h4 class="recheio-nome">Carne</h4><p class="recheio-desc">Recheio marcante.</p></div>
+          <div class="section-header">
+            <h2>Nosso Cardápio de Massas</h2>
           </div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+
+                <div class="carousel-track" id="track-massas">
+                    
+            <article class="massa-card">
+                <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2359_jpg.jpg" alt="Prato de Capeletti" class="massa-img">
+                <h2 class="massa-titulo">Capeletti</h2>
+                <p class="massa-descricao">Massa artesanal com recheios saborosos.</p>
+                <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                
+                <div class="recheios-escondidos" style="display: none;">
+                    <div class="recheios-linha">
+                        <div class="recheio"><h4 class="recheio-nome">Frango</h4><p class="recheio-desc">Recheio leve e saboroso.</p></div>
+                        <div class="recheio"><h4 class="recheio-nome">Carne</h4><p class="recheio-desc">Recheio marcante.</p></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="massa-card">
+                <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2363_jpg.jpg" alt="Prato de Ravioli" class="massa-img">
+                <h2 class="massa-titulo">Ravioli</h2>
+                <p class="massa-descricao">Massa delicada com recheios variados.</p>
+                <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                
+                <div class="recheios-escondidos" style="display: none;">
+                    <div class="recheios-linha">
+                        <div class="recheio"><h4 class="recheio-nome">Carne</h4><p class="recheio-desc">Experiência robusta.</p></div>
+                        <div class="recheio"><h4 class="recheio-nome">Frango</h4><p class="recheio-desc">Combinação leve.</p></div>
+                        <div class="recheio"><h4 class="recheio-nome">Queijo</h4><p class="recheio-desc">Cremoso e suave.</p></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="massa-card">
+                <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2399_jpg.jpg" alt="Prato de Nhoque" class="massa-img">
+                <h2 class="massa-titulo">Nhoque</h2>
+                <p class="massa-descricao">Massa macia e saborosa.</p>
+                <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                
+                <div class="recheios-escondidos" style="display: none;">
+                    <div class="recheios-linha">
+                        <div class="recheio"><h4 class="recheio-nome">Tradicional</h4><p class="recheio-desc">Massa de batata derretendo.</p></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="massa-card">
+                <img src="https://rotellimassas.com/wp-content/uploads/2024/07/03-4.png" alt="Prato de Canelones" class="massa-img">
+                <h2 class="massa-titulo">Canelones</h2>
+                <p class="massa-descricao">Massa enrolada com recheios clássicos.</p>
+                <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                
+                <div class="recheios-escondidos" style="display: none;">
+                    <div class="recheios-linha">
+                        <div class="recheio"><h4 class="recheio-nome">Presunto/Queijo</h4><p class="recheio-desc">Combinação tradicional.</p></div>
+                        <div class="recheio"><h4 class="recheio-nome">Carne</h4><p class="recheio-desc">Suculento com molho.</p></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="massa-card">
+                <img src="https://cms-bomgourmet.s3.amazonaws.com/bomgourmet%2F2023%2F05%2F04231346%2F1-1.jpg" alt="Prato de Pirog de Ricota" class="massa-img">
+                <h2 class="massa-titulo">Pierogi de Ricota</h2>
+                <p class="massa-descricao">Massa com inspiração no leste europeu.</p>
+                <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                
+                <div class="recheios-escondidos" style="display: none;">
+                    <div class="recheios-linha">
+                        <div class="recheio"><h4 class="recheio-nome">Tradicional</h4><p class="recheio-desc">Ricota fresca e temperada.</p></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="massa-card">
+                <img src="https://rotellimassas.com/wp-content/uploads/2024/07/07-4.png" alt="Prato de Tortei de Abóbora" class="massa-img">
+                <h2 class="massa-titulo">Tortei de Abóbora</h2>
+                <p class="massa-descricao">O equilíbrio perfeito entre doce e salgado.</p>
+                <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                
+                <div class="recheios-escondidos" style="display: none;">
+                    <div class="recheios-linha">
+                        <div class="recheio"><h4 class="recheio-nome">Clássico</h4><p class="recheio-desc">Abóbora com especiarias.</p></div>
+                    </div>
+                </div>
+</article>
+
+                </div>
+                <button class="carousel-btn next-btn" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <div id="modal-produto" class="modal-overlay" role="dialog" aria-modal="true">
+            <div class="modal-content">
+                <button class="fechar-modal" aria-label="Fechar Modal"><i class="fa-solid fa-xmark"></i></button>
+                <div class="modal-body">
+                    <img id="modal-img" src="" alt="Produto" class="modal-img-destaque">
+                    <h2 id="modal-titulo" class="titulo-secao"></h2>
+                    <p id="modal-descricao" class="citacao"></p>
+                    <h3 class="modal-subtitulo">Opções de Recheios:</h3>
+                    <div id="modal-recheios-container"></div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="massa-card">
-        <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2363_jpg.jpg" alt="Prato de Ravioli" class="massa-img">
-        <h2 class="massa-titulo">Ravioli</h2>
-        <p class="massa-descricao">Massa delicada com recheios variados.</p>
-        <span class="btn-ver-mais">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
-        
-        <div class="recheios-escondidos" style="display: none;">
-          <div class="recheios-linha">
-            <div class="recheio"><h4 class="recheio-nome">Carne</h4><p class="recheio-desc">Experiência robusta.</p></div>
-            <div class="recheio"><h4 class="recheio-nome">Frango</h4><p class="recheio-desc">Combinação leve.</p></div>
-            <div class="recheio"><h4 class="recheio-nome">Queijo</h4><p class="recheio-desc">Cremoso e suave.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="massa-card">
-        <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2399_jpg.jpg" alt="Prato de Nhoque" class="massa-img">
-        <h2 class="massa-titulo">Nhoque</h2>
-        <p class="massa-descricao">Massa macia e saborosa.</p>
-        <span class="btn-ver-mais">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
-        
-        <div class="recheios-escondidos" style="display: none;">
-          <div class="recheios-linha">
-            <div class="recheio"><h4 class="recheio-nome">Tradicional</h4><p class="recheio-desc">Massa de batata derretendo.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="massa-card">
-        <img src="https://rotellimassas.com/wp-content/uploads/2024/07/03-4.png" alt="Prato de Canelones" class="massa-img">
-        <h2 class="massa-titulo">Canelones</h2>
-        <p class="massa-descricao">Massa enrolada com recheios clássicos.</p>
-        <span class="btn-ver-mais">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
-        
-        <div class="recheios-escondidos" style="display: none;">
-          <div class="recheios-linha">
-            <div class="recheio"><h4 class="recheio-nome">Presunto/Queijo</h4><p class="recheio-desc">Combinação tradicional.</p></div>
-            <div class="recheio"><h4 class="recheio-nome">Carne</h4><p class="recheio-desc">Suculento com molho.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="massa-card">
-        <img src="https://cms-bomgourmet.s3.amazonaws.com/bomgourmet%2F2023%2F05%2F04231346%2F1-1.jpg" alt="Prato de Pirog de Ricota" class="massa-img">
-        <h2 class="massa-titulo">Pierogi de Ricota</h2>
-        <p class="massa-descricao">Massa com inspiração no leste europeu.</p>
-        <span class="btn-ver-mais">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
-        
-        <div class="recheios-escondidos" style="display: none;">
-          <div class="recheios-linha">
-            <div class="recheio"><h4 class="recheio-nome">Tradicional</h4><p class="recheio-desc">Ricota fresca e temperada.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="massa-card">
-        <img src="https://rotellimassas.com/wp-content/uploads/2024/07/07-4.png" alt="Prato de Tortei de Abóbora" class="massa-img">
-        <h2 class="massa-titulo">Tortei de Abóbora</h2>
-        <p class="massa-descricao">O equilíbrio perfeito entre doce e salgado.</p>
-        <span class="btn-ver-mais">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
-        
-        <div class="recheios-escondidos" style="display: none;">
-          <div class="recheios-linha">
-            <div class="recheio"><h4 class="recheio-nome">Clássico</h4><p class="recheio-desc">Abóbora com especiarias.</p></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <button class="carousel-btn next-btn" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
-  </div>
-</section>
-
-<div id="modal-produto" class="modal-overlay">
-  <div class="modal-content">
-    <button class="fechar-modal"><i class="fa-solid fa-xmark"></i></button>
-    <div class="modal-body">
-      <img id="modal-img" src="" alt="Produto" class="modal-img-destaque">
-      <h2 id="modal-titulo" class="titulo-secao"></h2>
-      <p id="modal-descricao" class="citacao"></p>
-      
-      <h3 class="modal-subtitulo">Opções de Recheios:</h3>
-      <div id="modal-recheios-container">
-        </div>
-    </div>
-  </div>
-</div>
-
 
     </main>
 
@@ -216,177 +209,6 @@
         </div>
     </footer>
 
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        // Quando a seção entra na tela
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visivel');
-        } else {
-          // Quando sai da tela, volta a ficar invisível
-          entry.target.classList.remove('visivel');
-        }
-      });
-    }, {
-      threshold: 0.1 // Alterado de 0.15 para 0.1 para disparar mais fácil
-    });
-
-    const elementosEscondidos = document.querySelectorAll('.efeito-fade');
-    elementosEscondidos.forEach((el) => observer.observe(el));
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Pega todas as seções que têm ID e todos os links com a classe nav-link
-    const secoes = document.querySelectorAll("section[id], header[id], div[id]");
-    const linksMenu = document.querySelectorAll(".nav-link");
-
-    function atualizaLinhaMenu() {
-      // Posição atual da rolagem
-      let scrollY = window.pageYOffset;
-      let idAtual = "";
-
-      secoes.forEach((secao) => {
-        const alturaSecao = secao.offsetHeight;
-        // Subtrai 150 pixels para compensar o tamanho do seu navbar fixo
-        const topoSecao = secao.offsetTop - 150; 
-
-        // Se passamos do topo da seção, mas ainda não chegamos no fim dela
-        if (scrollY >= topoSecao && scrollY < topoSecao + alturaSecao) {
-          idAtual = secao.getAttribute("id");
-        }
-      });
-
-      // Se achou uma seção, acende o link correspondente
-      if (idAtual !== "") {
-        linksMenu.forEach((link) => {
-          link.classList.remove("ativo");
-          if (link.getAttribute("href") === "#" + idAtual) {
-            link.classList.add("ativo");
-          }
-        });
-      }
-    }
-
-    // Ativa quando rola a tela e também logo que a página carrega
-    window.addEventListener("scroll", atualizaLinhaMenu);
-    atualizaLinhaMenu(); 
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const track = document.getElementById('track-massas');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const wrapper = document.querySelector('.carousel-wrapper');
-    
-    let autoScrollTimer;
-
-    // Função que calcula o tamanho da tela atual e rola a pista
-    function scrollCarousel(direcao) {
-      const larguraRolagem = track.clientWidth; 
-      const scrollMaximo = track.scrollWidth - track.clientWidth;
-
-      if (direcao === 'next') {
-        // Se chegou no final (com uma folga de 10px pro navegador não bugar), volta pro começo
-        if (track.scrollLeft >= scrollMaximo - 10) {
-          track.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          track.scrollBy({ left: larguraRolagem, behavior: 'smooth' });
-        }
-      } else if (direcao === 'prev') {
-        // Se está no começo e clicou pra voltar, vai pro final
-        if (track.scrollLeft <= 10) {
-          track.scrollTo({ left: scrollMaximo, behavior: 'smooth' });
-        } else {
-          track.scrollBy({ left: -larguraRolagem, behavior: 'smooth' });
-        }
-      }
-    }
-
-    // A MÁGICA DA CORREÇÃO ESTÁ AQUI:
-    function startAutoScroll() {
-      // 1º passo: Destrói qualquer cronômetro antigo para não acumular
-      clearInterval(autoScrollTimer); 
-      
-      // 2º passo: Inicia um novo cronômetro limpo de 5 segundos
-      autoScrollTimer = setInterval(() => {
-        scrollCarousel('next');
-      }, 5000);
-    }
-
-    function stopAutoScroll() {
-      clearInterval(autoScrollTimer);
-    }
-
-    // Função unificada para botões: Rola a tela e reseta o cronômetro do zero
-    function acaoBotao(direcao) {
-      scrollCarousel(direcao);
-      startAutoScroll(); // Já destrói o antigo e cria um novo internamente
-    }
-
-    // Cliques nas setas
-    nextBtn.addEventListener('click', () => acaoBotao('next'));
-    prevBtn.addEventListener('click', () => acaoBotao('prev'));
-
-    // UX: Pausa quando o cliente quer ler (Mouse no PC / Dedo no Celular)
-    wrapper.addEventListener('mouseenter', stopAutoScroll); 
-    wrapper.addEventListener('mouseleave', startAutoScroll); 
-    
-    // O passivo: true melhora a performance da rolagem no celular
-    wrapper.addEventListener('touchstart', stopAutoScroll, { passive: true });  
-    wrapper.addEventListener('touchend', startAutoScroll, { passive: true });   
-
-    // Inicia o carrossel pela primeira vez quando a página carrega
-    startAutoScroll();
-  });
-</script>
-
-<script>
-  // Script exclusivo para o funcionamento do Modal
-  document.addEventListener("DOMContentLoaded", function() {
-    const modal = document.getElementById('modal-produto');
-    const btnFechar = document.querySelector('.fechar-modal');
-    const cartoesMassa = document.querySelectorAll('.massa-card');
-
-    const modalImg = document.getElementById('modal-img');
-    const modalTitulo = document.getElementById('modal-titulo');
-    const modalDescricao = document.getElementById('modal-descricao');
-    const modalRecheios = document.getElementById('modal-recheios-container');
-
-    // 1. Abrir o modal ao clicar em qualquer cartão
-    cartoesMassa.forEach(cartao => {
-      cartao.addEventListener('click', function() {
-        // Copia os dados do HTML do cartão clicado
-        modalImg.src = cartao.querySelector('.massa-img').src;
-        modalTitulo.innerText = cartao.querySelector('.massa-titulo').innerText;
-        modalDescricao.innerText = cartao.querySelector('.massa-descricao').innerText;
-        modalRecheios.innerHTML = cartao.querySelector('.recheios-escondidos').innerHTML;
-
-        // Mostra o modal e impede a página de fundo de rolar
-        modal.classList.add('ativo');
-        document.body.style.overflow = 'hidden'; 
-      });
-    });
-
-    // 2. Fechar o modal clicando no botão X
-    btnFechar.addEventListener('click', () => {
-      modal.classList.remove('ativo');
-      document.body.style.overflow = 'auto'; // Libera a rolagem do site novamente
-    });
-
-    // 3. Fechar o modal clicando no fundo escuro
-    modal.addEventListener('click', (evento) => {
-      if (evento.target === modal) {
-        modal.classList.remove('ativo');
-        document.body.style.overflow = 'auto';
-      }
-    });
-  });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>

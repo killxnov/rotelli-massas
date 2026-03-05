@@ -1,0 +1,111 @@
+/* ----- VARIAVEIS GLOBAIS ----- */
+
+:root {
+    /* Identidade Visual */
+    --cor-primaria: #8B0000;         /* Vermelho Vinho (Logo, Botões, Títulos) */
+    --cor-primaria-hover: #660000;   /* Vermelho Vinho Escuro */
+    --cor-secundaria: #556B2F;       /* Verde Oliva (Botões Secundários, Ícones) */
+    --cor-secundaria-hover: #445525; /* Verde Oliva Escuro */
+    --cor-destaque: #4f6e42;         /* Verde Escuro (Sublinhados e Bordas) */
+    --cor-vermelho-claro: #b52a2a;   /* Vermelho dos recheios */
+
+    /* Cores de Fundo */
+    --bg-principal: #FAF8F5;         /* Creme Elegante (Site inteiro) */
+    --bg-secundario: #fbf9f6;        /* Creme Claro (Sessão Cardápio) */
+    --bg-footer: #222222;            /* Cinza Escuro (Rodapé principal) */
+    --bg-footer-dark: #111111;       /* Quase Preto (Base do Rodapé) */
+
+    /* Cores de Texto */
+    --texto-forte: #1a1a1a;          /* Títulos escuros */
+    --texto-padrao: #333333;         /* Textos principais */
+    --texto-suave: #444444;          /* Descrições */
+    --texto-detalhe: #666666;        /* Descrições menores */
+    --texto-branco: #ffffff;         /* Textos em fundos escuros */
+    --texto-citacao: #dddddd;        /* Citações */
+    --texto-rodape: #cccccc;         /* Textos do rodapé */
+    --texto-rodape-dark: #888888;    /* Copyright do rodapé */
+}
+
+/* ----- RESET E CONFIGURAÇÕES GERAIS ----- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg-principal); 
+    color: var(--texto-padrao);
+}
+
+h1, h2, h3, h4, .logo, .assinatura {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 100px 0; 
+}
+
+.titulo-secao {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px; 
+    color: var(--cor-primaria); 
+}
+
+.btn-primario {
+    text-decoration: none;
+    background-color: var(--cor-primaria);
+    color: var(--texto-branco);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 35px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.btn-primario:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+.btn-destaque {
+    background-color: var(--cor-secundaria); 
+    color: var(--texto-branco) !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-destaque:hover {
+    background-color: var(--cor-secundaria-hover);
+}
+
+.efeito-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-in-out;
+}
+
+.efeito-fade.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----- RESPONSIVIDADE ----- */
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+    .titulo-secao {
+        font-size: 2rem;
+    }
+}
