@@ -1,17 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-/* ----- OBSERVER ANIMACAO FADE ----- */
-
+/* ----- OBSERVER ANIMACAO FADE (EFEITO NÉVOA) ----- */
     const observerFade = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visivel');
         } else {
-          entry.target.classList.remove('visivel');
+          // Quando sai da zona de foco, ele volta a embaçar
+          entry.target.classList.remove('visivel'); 
         }
       });
     }, {
-      threshold: 0.1
+      // Cria uma "janela de foco" no meio da tela. 
+      // Ignora os 20% do topo e os 20% da base do navegador.
+      rootMargin: "-30% 0px -30% 0px", 
+      threshold: 0 
     });
 
     const elementosEscondidos = document.querySelectorAll('.efeito-fade');

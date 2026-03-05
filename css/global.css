@@ -35,6 +35,11 @@
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     background-color: var(--bg-principal); 
@@ -89,19 +94,30 @@ section {
 }
 
 .efeito-fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-in-out;
+    opacity: 0.6; /* Fica quase transparente (névoa) */
+    filter: blur(5px); /* O desfoque estilo lente de câmera */
+    transform: scale(0.97); /* Dá um leve recuo para trás */
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+    will-change: opacity, filter, transform;
+}
+
+section.efeito-fade {
+    transform: none !important; 
 }
 
 .efeito-fade.visivel {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0); /* Tira o desfoque totalmente */
+    transform: scale(1);
 }
 
 /* ----- RESPONSIVIDADE ----- */
 
 @media (max-width: 768px) {
+    html {
+        scroll-padding-top: 170px;
+    }
+
     section {
         padding: 60px 0;
     }

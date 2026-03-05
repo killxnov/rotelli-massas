@@ -1,16 +1,26 @@
-/* ----- BARRA DE NAVEGACAO ----- */
+/* ----- BARRA DE NAVEGACAO (ESTILO GLASSMORPHISM) ----- */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: var(--bg-footer);
+    padding: 15px 50px; /* Reduzi um pouco a altura para ficar mais elegante */
+    
+    /* Efeito Acrílico */
+    background: rgba(43, 40, 36, 0.8); /* Cor escura com transparência */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
     position: fixed;
     width: 100%;
+    left: 0; /* Garante que comece do canto zero */
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    
+    /* Correção técnica crucial: impede que o padding empurre a barra para fora da tela */
+    box-sizing: border-box; 
 }
 
 .logo {
@@ -21,42 +31,46 @@
 .logo img {
     height: 45px;
     width: auto;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .logo img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 35px; /* Espaçamento levemente maior para melhor leitura */
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
     position: relative;
     text-decoration: none;
-    color: var(--texto-rodape);
+    color: rgba(255, 255, 255, 0.8); /* Branco levemente suave por padrão */
+    font-size: 0.95rem;
     padding-bottom: 5px;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.ativo {
     color: var(--texto-branco);
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px;
+    height: 2px; /* Linha mais fina para parecer mais moderna */
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0; /* Começa da esquerda para um efeito de preenchimento elegante */
     background-color: var(--cor-secundaria);
     transition: width 0.3s ease-in-out;
 }
@@ -68,16 +82,15 @@
 
 .social-links {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     align-items: center;
 }
 
 .social-links a {
-    color: var(--texto-rodape);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.2rem;
     text-decoration: none;
     transition: all 0.3s ease;
-    display: inline-block;
 }
 
 .social-links a:hover {
@@ -85,22 +98,36 @@
     color: var(--texto-branco);
 }
 
-
-.social-links a[aria-label="Facebook"]:hover { color: #1877F2; }
-.social-links a[aria-label="Instagram"]:hover { color: #E4405F; }
-.social-links a[aria-label="Linktree"]:hover { color: #43E660; }
+/* Cores específicas no hover (Mantenha as que você já definiu) */
+.social-links a:hover i.fa-facebook-f { color: #1877F2; }
+.social-links a:hover i.fa-instagram { color: #E4405F; }
+.social-links a:hover i.fa-whatsapp { color: #25D366; }
+.social-links a:hover i.fa-link { color: #ffffff; }
 
 /* ----- RESPONSIVIDADE ----- */
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+}
 
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         padding: 15px;
-        gap: 15px;
+        gap: 12px;
+        position: fixed; /* No mobile, fixo as vezes atrapalha se o menu for grande */
     }
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
+    }
+    .logo img {
+        height: 35px;
     }
 }
