@@ -119,11 +119,11 @@ section.efeito-fade {
 
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 170px;
+        scroll-padding-top: 80px;
     }
 
     section {
-        padding: 60px 0;
+        padding: 100px 0;
     }
     .titulo-secao {
         font-size: 2rem;
