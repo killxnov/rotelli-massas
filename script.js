@@ -20,24 +20,68 @@ document.addEventListener("DOMContentLoaded", function() {
     const elementosEscondidos = document.querySelectorAll('.efeito-fade');
     elementosEscondidos.forEach((el) => observerFade.observe(el));
 
-/* ----- NAVEGAÇÃO ATIVA NO SCROLL ----- */
+/* ----- NAVEGAÇÃO ATIVA E CENTRALIZAÇÃO DE SCROLL ----- */
 
     const secoes = document.querySelectorAll("section[id], header[id], div[id]");
     const linksMenu = document.querySelectorAll(".nav-link");
+    const navbar = document.querySelector(".navbar");
 
+    // 1. CLIQUE SUAVE E CENTRALIZADO
+    linksMenu.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault(); // Desativa o pulo padrão do HTML
+            
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSecao = document.getElementById(targetId);
+
+            if (targetSecao) {
+                const headerHeight = navbar.offsetHeight;
+                
+                // Calcula onde é o meio da seção e o meio da área visível da tela
+                const meioDaSecao = targetSecao.offsetTop + (targetSecao.offsetHeight / 2);
+                const meioDaTelaUsavel = (window.innerHeight / 2) + (headerHeight / 2);
+                
+                let posicaoScroll = meioDaSecao - meioDaTelaUsavel;
+
+                // Regra especial: se clicar em "Início" (hero), joga exatamente pro topo 0
+                if (targetId === "hero") {
+                    posicaoScroll = 0;
+                }
+
+                window.scrollTo({
+                    top: posicaoScroll,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+    // 2. RADAR DA BARRINHA VERMELHA (SCROLL SPY)
     function atualizaLinhaMenu() {
       let scrollY = window.pageYOffset;
+      const headerHeight = navbar.offsetHeight;
+      
+      // Cria uma linha imaginária que corta o meio exato da tela que o usuário está vendo
+      const linhaDoMeio = scrollY + (window.innerHeight / 2) + (headerHeight / 2);
+      
       let idAtual = "";
 
       secoes.forEach((secao) => {
-        const alturaSecao = secao.offsetHeight;
-        const topoSecao = secao.offsetTop - 150; 
+        const topoSecao = secao.offsetTop;
+        const baseSecao = topoSecao + secao.offsetHeight;
 
-        if (scrollY >= topoSecao && scrollY < topoSecao + alturaSecao) {
+        // Se a linha do meio da tela estiver dentro desta seção, ela ganha o foco!
+        if (linhaDoMeio >= topoSecao && linhaDoMeio < baseSecao) {
           idAtual = secao.getAttribute("id");
         }
       });
 
+      // Tratamento extra: se o usuário rolou tudo lá pro topo, força o botão Início a acender
+      if (scrollY < 50) {
+          idAtual = "hero";
+      }
+
+      // Acende a linha correspondente no menu
       if (idAtual !== "") {
         linksMenu.forEach((link) => {
           link.classList.remove("ativo");
@@ -48,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
+    // Ouve a rolagem e atualiza a barrinha em tempo real
     window.addEventListener("scroll", atualizaLinhaMenu);
     atualizaLinhaMenu(); 
 
