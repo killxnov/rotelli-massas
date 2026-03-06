@@ -71,6 +71,12 @@ section {
     color: var(--texto-forte); 
 }
 
+.btn-home {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .btn-primario {
     text-decoration: none;
     background-color: var(--cor-primaria);
@@ -86,7 +92,26 @@ section {
     background-color: var(--cor-primaria-hover);
 }
 
-.btn-destaque {
+.btn-secundario {
+  text-decoration: none;
+  color: var(--texto-branco);
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 35px;
+  transition: background 0.3s;
+  font-weight: bold;
+  /*backdrop-filter: blur(2px);*/
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn-secundario:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+/*.btn-destaque {
     background-color: var(--cor-secundaria); 
     color: var(--texto-branco) !important;
     padding: 10px 20px;
@@ -95,7 +120,7 @@ section {
 
 .btn-destaque:hover {
     background-color: var(--cor-secundaria-hover);
-}
+}*/
 
 .efeito-fade {
     opacity: 0.6; /* Fica quase transparente (névoa) */
