@@ -43,3 +43,13 @@
     font-size: 0.9rem;
     color: var(--texto-rodape-dark);
 }
+
+.link-mapa {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-mapa:hover {
+    color: var(--cor-secundaria); 
+}
