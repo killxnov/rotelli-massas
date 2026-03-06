@@ -1,24 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-/* ----- OBSERVER ANIMACAO FADE (EFEITO NÉVOA) ----- */
-    const observerFade = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visivel');
-        } else {
-          // Quando sai da zona de foco, ele volta a embaçar
-          entry.target.classList.remove('visivel'); 
-        }
-      });
-    }, {
-      // Cria uma "janela de foco" no meio da tela. 
-      // Ignora os 20% do topo e os 20% da base do navegador.
-      rootMargin: "-30% 0px -30% 0px", 
-      threshold: 0 
-    });
+/* =========================================
+   ANIMAÇÕES DE ENTRADA COM SCROLLREVEAL
+   ========================================= */
 
-    const elementosEscondidos = document.querySelectorAll('.efeito-fade');
-    elementosEscondidos.forEach((el) => observerFade.observe(el));
+// 1. Configuração Padrão
+const sr = ScrollReveal({
+    origin: 'bottom',      
+    distance: '50px',      
+    duration: 1000,        
+    delay: 150,            
+    reset: true           // <-- Mudei para TRUE. Agora a animação repete sempre que você rolar a página para cima e para baixo!
+});
+
+// 2. Animando a Seção Hero
+sr.reveal('.hero-content h1', { origin: 'top', distance: '30px' });
+sr.reveal('.hero-content p', { delay: 300 });
+sr.reveal('.hero-content .btn-primario, .btn-secundario', { delay: 500, origin: 'bottom' });
+
+// 3. Animando a Seção Sobre
+sr.reveal('.sobre-imagem', { origin: 'left', distance: '60px' });
+sr.reveal('.sobre-texto', { origin: 'right', distance: '60px' });
+
+// 4. Animando o Segredo
+sr.reveal('.segredo-container', { scale: 0.9, duration: 1200 });
+
+// 5. Animando a Seção de Produtos (Sem quebrar o layout)
+sr.reveal('.section-header', { origin: 'top' });
+// Animamos o "wrapper" inteiro de uma vez, assim o navegador mantém a matemática do carrossel intacta
+sr.reveal('.carousel-wrapper', { delay: 200, origin: 'bottom', distance: '40px' });
+
 
 /* ----- NAVEGAÇÃO ATIVA E CENTRALIZAÇÃO DE SCROLL ----- */
 
@@ -263,4 +274,36 @@ document.addEventListener("DOMContentLoaded", function() {
           if (evento.target === modal) fecharModalFunc();
         });
     }
+
+    /* =========================================
+   SMART NAVBAR (ESCONDE NO SCROLL MOBILE)
+   ========================================= */
+    let ultimoScroll = 0;
+    const navbarSmart = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+        // Só executa o efeito de esconder se for tela de celular/tablet
+        if (window.innerWidth <= 992) {
+            let scrollAtual = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // FILTRO DE SENSIBILIDADE: Só ativa se o dedo mover mais de 10 pixels
+            // Isso evita que a barra suma/apareça por micro-tremidas do dedo
+            if (Math.abs(scrollAtual - ultimoScroll) <= 10) return;
+
+            // Se rolou para BAIXO e passou do início da tela (100px) -> Esconde a barra
+            if (scrollAtual > ultimoScroll && scrollAtual > 100) {
+                navbarSmart.classList.add('navbar-escondida');
+            } 
+            // Se rolou para CIMA -> Mostra a barra na hora
+            else if (scrollAtual < ultimoScroll) {
+                navbarSmart.classList.remove('navbar-escondida');
+            }
+            
+            // Grava a posição para comparar no próximo movimento
+            ultimoScroll = scrollAtual <= 0 ? 0 : scrollAtual; 
+        } else {
+            // Se virar a tela ou for para o PC, garante que a barra nunca suma
+            navbarSmart.classList.remove('navbar-escondida');
+        }
+    });
 });

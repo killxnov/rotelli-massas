@@ -38,6 +38,9 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
+
+    overflow-x: hidden; 
+    max-width: 100vw;
 }
 
 body {
@@ -46,6 +49,9 @@ body {
     color: var(--texto-padrao);
     font-weight: 200;
     font-style: normal;
+
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 h1, h2, h3, h4, .logo, .assinatura {
@@ -111,34 +117,6 @@ section {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
 }
 
-/*.btn-destaque {
-    background-color: var(--cor-secundaria); 
-    color: var(--texto-branco) !important;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.btn-destaque:hover {
-    background-color: var(--cor-secundaria-hover);
-}*/
-
-.efeito-fade {
-    opacity: 0.6; /* Fica quase transparente (névoa) */
-    filter: blur(5px); /* O desfoque estilo lente de câmera */
-    transform: scale(0.97); /* Dá um leve recuo para trás */
-    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
-    will-change: opacity, filter, transform;
-}
-
-section.efeito-fade {
-    transform: none !important; 
-}
-
-.efeito-fade.visivel {
-    opacity: 1;
-    filter: blur(0); /* Tira o desfoque totalmente */
-    transform: scale(1);
-}
 
 /* ----- RESPONSIVIDADE ----- */
 
@@ -149,6 +127,7 @@ section.efeito-fade {
 
     section {
         padding: 60px 0;
+        overflow: hidden;
     }
     .titulo-secao {
         font-size: 2rem;

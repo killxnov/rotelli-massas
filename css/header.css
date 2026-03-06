@@ -4,23 +4,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px; /* Reduzi um pouco a altura para ficar mais elegante */
+    padding: 15px 50px; 
     
     /* Efeito Acrílico */
-    background: rgba(43, 40, 36, 0.8); /* Cor escura com transparência */
+    background: rgba(43, 40, 36, 0.8); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     
     position: fixed;
     width: 100%;
-    left: 0; /* Garante que comece do canto zero */
+    left: 0; 
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    
-    /* Correção técnica crucial: impede que o padding empurre a barra para fora da tela */
     box-sizing: border-box; 
+    
+    /* Transição para a barra esconder suavemente */
+    transition: transform 0.3s ease-in-out, background 0.3s ease !important;
+}
+
+.navbar-escondida {
+    /* Joga a barra 100% para cima, para fora da tela */
+    transform: translateY(-100%) !important;
 }
 
 .logo {
@@ -41,7 +47,7 @@
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 35px; /* Espaçamento levemente maior para melhor leitura */
+    gap: 35px; 
     align-items: center;
     margin: 0;
     padding: 0;
@@ -50,7 +56,7 @@
 .nav-link {
     position: relative;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.8); /* Branco levemente suave por padrão */
+    color: rgba(255, 255, 255, 0.8); 
     font-size: 0.95rem;
     padding-bottom: 5px;
     font-weight: 700;
@@ -68,9 +74,9 @@
     content: '';
     position: absolute;
     width: 0;
-    height: 2px; /* Linha mais fina para parecer mais moderna */
+    height: 2px; 
     bottom: 0;
-    left: 0; /* Começa da esquerda para um efeito de preenchimento elegante */
+    left: 0; 
     background-color: var(--cor-secundaria);
     transition: width 0.3s ease-in-out;
 }
@@ -98,7 +104,6 @@
     color: var(--texto-branco);
 }
 
-/* Cores específicas no hover (Mantenha as que você já definiu) */
 .social-links a:hover i.fa-facebook-f { color: #1877F2; }
 .social-links a:hover i.fa-instagram { color: #E4405F; }
 .social-links a:hover i.fa-whatsapp { color: #25D366; }
@@ -106,8 +111,14 @@
 
 /* ----- RESPONSIVIDADE ----- */
 
+/* Engloba tablets e celulares deitados (Landscape) */
 @media (max-width: 992px) {
     .navbar {
+        /* No mobile/tablet deitado, a tela fica muito "curta". 
+           Tiramos o efeito de vidro para não travar a animação */
+        background: rgba(43, 40, 36, 1) !important; 
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         padding: 15px 30px;
     }
     .nav-links {
@@ -115,12 +126,12 @@
     }
 }
 
+/* Celulares em pé (Portrait) */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         padding: 15px;
         gap: 12px;
-        position: fixed; /* No mobile, fixo as vezes atrapalha se o menu for grande */
     }
     .nav-links {
         flex-wrap: wrap;

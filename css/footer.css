@@ -44,12 +44,15 @@
     color: var(--texto-rodape-dark);
 }
 
+.link-rodape,
 .link-mapa {
     color: inherit;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
+.link-rodape:hover,
 .link-mapa:hover {
     color: var(--cor-secundaria); 
+    text-decoration: underline;
 }
