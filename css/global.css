@@ -133,3 +133,123 @@ section {
         font-size: 2rem;
     }
 }
+
+/* =========================================
+   PÁGINAS DE TEXTO (Privacidade, Termos, etc)
+   ========================================= */
+
+.pagina-legal {
+    padding-top: 150px; /* Espaço maior por causa do header fixo */
+    padding-bottom: 80px;
+    background-color: var(--bg-principal);
+}
+
+.container-legal {
+    max-width: 800px; /* Mais estreito que o normal para a leitura não cansar a vista */
+    margin: 0 auto;
+    background: #ffffff; /* Fundo branco para destacar do creme do site */
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.container-legal h1 {
+    color: var(--cor-primaria);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.data-atualizacao {
+    text-align: center;
+    color: var(--texto-suave);
+    font-style: italic;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+}
+
+.container-legal h2 {
+    color: var(--cor-secundaria);
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+}
+
+.container-legal p, .container-legal li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--texto-padrao);
+    margin-bottom: 15px;
+}
+
+.container-legal ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .container-legal {
+        padding: 30px 20px;
+    }
+    .container-legal h1 {
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   SISTEMA DE NOTIFICAÇÕES (TOAST) - NO TOPO
+   ========================================= */
+.toast-container {
+    position: fixed;
+    top: 30px; /* Agora fica no topo */
+    left: 0;
+    width: 100%; /* Pega a tela toda para centralizar a caixa */
+    z-index: 99999; 
+    display: flex;
+    flex-direction: column;
+    align-items: end; /* Centraliza a notificação no meio da tela */
+    gap: 12px;
+    pointer-events: none; /* Evita que a área invisível bloqueie cliques no site */
+}
+
+.toast {
+    background-color: var(--cor-primaria); 
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    /* Prepara para a animação de entrada (Escondido para cima) */
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease;
+}
+
+/* Classe que o JS ativa para mostrar a notificação caindo */
+.toast.mostrar {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast i {
+    font-size: 1.3rem;
+}
+
+/* Ajuste para não encostar nas bordas em telas de celular */
+@media (max-width: 768px) {
+    .toast-container {
+        top: 20px;
+    }
+    .toast {
+        width: 90%; /* Deixa uma margem lateral elegante no mobile */
+        justify-content: center;
+        text-align: center;
+    }
+}

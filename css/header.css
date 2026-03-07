@@ -2,11 +2,10 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Mantém a Logo, Menu e Lado Direito separados */
     align-items: center;
     padding: 15px 50px; 
     
-    /* Efeito Acrílico */
     background: rgba(43, 40, 36, 0.8); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -20,125 +19,127 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     box-sizing: border-box; 
     
-    /* Transição para a barra esconder suavemente */
     transition: transform 0.3s ease-in-out, background 0.3s ease !important;
 }
 
 .navbar-escondida {
-    /* Joga a barra 100% para cima, para fora da tela */
     transform: translateY(-100%) !important;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
+/* ----- LOGO ----- */
+.logo { display: flex; align-items: center; }
+.logo img { height: 45px; width: auto; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.logo img:hover { transform: scale(1.08); }
 
-.logo img {
-    height: 45px;
-    width: auto;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.logo img:hover {
-    transform: scale(1.08);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 35px; 
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
+/* ----- NAVEGAÇÃO CENTRAL ----- */
+.nav-menu { display: flex; align-items: center; }
+.nav-links { list-style: none; display: flex; gap: 35px; align-items: center; margin: 0; padding: 0; }
 .nav-link {
-    position: relative;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8); 
-    font-size: 0.95rem;
-    padding-bottom: 5px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    position: relative; text-decoration: none; color: rgba(255, 255, 255, 0.8); 
+    font-size: 0.95rem; padding-bottom: 5px; font-weight: 700; letter-spacing: 0.5px; transition: all 0.3s ease;
 }
-
-.nav-link:hover,
-.nav-link.ativo {
-    color: var(--texto-branco);
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
-
+.nav-link:hover, .nav-link.ativo { color: var(--texto-branco); text-shadow: 0 0 10px rgba(255,255,255,0.3); }
 .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px; 
-    bottom: 0;
-    left: 0; 
-    background-color: var(--cor-secundaria);
-    transition: width 0.3s ease-in-out;
+    content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; 
+    background-color: var(--cor-secundaria); transition: width 0.3s ease-in-out;
 }
+.nav-link:hover::after, .nav-link.ativo::after { width: 100%; }
 
-.nav-link:hover::after,
-.nav-link.ativo::after {
-    width: 100%;
-}
-
-.social-links {
+/* ----- LADO DIREITO (Carrinho, Redes e Hambúrguer) ----- */
+.direita-header {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 25px; /* Espaço exato entre carrinho e redes sociais */
 }
 
-.social-links a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    transform: translateY(-3px);
-    color: var(--texto-branco);
-}
-
+.social-links { display: flex; gap: 20px; align-items: center; }
+.social-links a { color: rgba(255, 255, 255, 0.7); font-size: 1.2rem; text-decoration: none; transition: all 0.3s ease; }
+.social-links a:hover { transform: translateY(-3px); color: var(--texto-branco); }
 .social-links a:hover i.fa-facebook-f { color: #1877F2; }
 .social-links a:hover i.fa-instagram { color: #E4405F; }
 .social-links a:hover i.fa-whatsapp { color: #25D366; }
-.social-links a:hover i.fa-link { color: #ffffff; }
 
-/* ----- RESPONSIVIDADE ----- */
+.menu-hamburguer {
+    display: none; /* Sempre invisível no PC */
+    background: none; border: none; color: rgba(255, 255, 255, 0.9);
+    font-size: 28px; cursor: pointer; padding: 0; transition: transform 0.3s ease;
+}
 
-/* Engloba tablets e celulares deitados (Landscape) */
+/* =========================================
+   SISTEMA DE CARRINHO LATERAL
+   ========================================= */
+
+.cart-icon {
+    position: relative; background: none; border: none; color: rgba(255, 255, 255, 0.9);
+    font-size: 24px; cursor: pointer; padding: 0; margin: 0; transition: transform 0.2s;
+    display: flex; align-items: center;
+}
+.cart-icon:hover { transform: scale(1.1); color: var(--texto-branco); }
+
+.cart-count {
+    position: absolute; top: -8px; right: -12px; background-color: var(--cor-primaria);
+    color: var(--texto-branco); font-size: 11px; font-weight: bold; width: 20px; height: 20px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+
+.cart-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+    z-index: 9998 !important; display: none; opacity: 0; transition: opacity 0.3s ease;
+}
+.cart-overlay.ativo { display: block; opacity: 1; }
+
+.cart-sidebar {
+    position: fixed; top: 0; right: -100%; width: 400px; max-width: 100%; height: 100vh;
+    background-color: var(--bg-principal); z-index: 9999 !important; box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    display: flex; flex-direction: column; transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+.cart-sidebar.aberto { right: 0; }
+.cart-header { padding: 25px; background-color: var(--cor-primaria); color: var(--texto-branco); display: flex; justify-content: space-between; align-items: center; }
+.cart-header h2 { margin: 0; font-size: 1.5rem; color: var(--texto-branco); }
+.close-cart { background: none; border: none; color: white; font-size: 28px; cursor: pointer; }
+.cart-items { flex: 1; overflow-y: auto; padding: 25px; }
+.cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0dbce; padding-bottom: 15px; margin-bottom: 15px; }
+.cart-item-info h4 { color: var(--texto-forte); font-size: 1.1rem; margin-bottom: 8px; font-weight: bold; }
+.cart-item-info p { color: var(--cor-primaria); font-weight: bold; margin: 0; }
+.cart-item-controls { display: flex; align-items: center; gap: 12px; }
+.btn-qtd { background-color: var(--cor-secundaria); color: white; border: none; width: 28px; height: 28px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background 0.2s; }
+.btn-qtd:hover { background-color: var(--cor-secundaria-hover); }
+.item-qtd { font-weight: bold; font-size: 1.1rem; width: 20px; text-align: center; }
+.cart-footer { padding: 25px; background-color: white; border-top: 1px solid #e0dbce; }
+.cart-total { display: flex; justify-content: space-between; font-size: 1.4rem; font-weight: bold; margin-bottom: 20px; color: var(--texto-forte); }
+.btn-finalizar { width: 100%; padding: 18px; background-color: #25D366; color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: background 0.3s; display: flex; justify-content: center; gap: 10px; }
+.btn-finalizar:hover { background-color: #1ebe5d; transform: translateY(-2px); }
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================= */
+
 @media (max-width: 992px) {
     .navbar {
-        /* No mobile/tablet deitado, a tela fica muito "curta". 
-           Tiramos o efeito de vidro para não travar a animação */
+        padding: 15px 30px;
         background: rgba(43, 40, 36, 1) !important; 
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        padding: 15px 30px;
     }
-    .nav-links {
-        gap: 20px;
-    }
-}
+    .logo img { height: 38px; }
 
-/* Celulares em pé (Portrait) */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 15px;
-        gap: 12px;
+    /* Ajusta a direita: esconde as redes, junta carrinho e hambúrguer */
+    .direita-header { gap: 20px; }
+    .social-links { display: none; } /* Some com as redes sociais no mobile */
+    .menu-hamburguer { display: block; z-index: 1001; } /* Mostra as 3 listrinhas */
+
+    /* Transforma o menu central na aba lateral */
+    .nav-menu {
+        position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
+        background-color: var(--bg-principal); box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); z-index: 1000;
     }
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    .logo img {
-        height: 35px;
-    }
+    .nav-menu.aberto { right: 0; }
+
+    .nav-links { flex-direction: column; gap: 35px; width: 100%; text-align: center; }
+    .nav-link { color: var(--texto-forte); font-size: 1.5rem; display: inline-block; padding: 10px; }
+    .nav-link:hover, .nav-link.ativo { color: var(--cor-primaria); text-shadow: none; }
+    .nav-link::after { background-color: var(--cor-primaria); }
 }

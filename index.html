@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
+
 <body>
 
     <header class="navbar">
@@ -27,22 +28,33 @@
           <img src="https://rotellimassas.com/wp-content/uploads/2024/07/logo.png" alt="logo rotelli">
         </a>
         
-        <nav>
+        <nav class="nav-menu" id="nav-menu">
             <ul class="nav-links">
-                <li><a href="#hero" class="nav-link">Início</a></li>
-                <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
-                <li><a href="#segredo" class="nav-link">Nosso Segredo</a></li>
-                <li><a href="#cardapio" class="nav-link">Produtos</a></li>
+                <li><a href="#hero" class="nav-link" onclick="fecharMenuMobile()">Início</a></li>
+                <li><a href="#sobre" class="nav-link" onclick="fecharMenuMobile()">Sobre Nós</a></li>
+                <li><a href="#segredo" class="nav-link" onclick="fecharMenuMobile()">Nosso Segredo</a></li>
+                <li><a href="#cardapio" class="nav-link" onclick="fecharMenuMobile()">Produtos</a></li>
             </ul>
         </nav>
+        
+        <div class="direita-header">
+            
+            <button class="cart-icon" onclick="abrirCarrinho()" aria-label="Ver Carrinho">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
 
-        <div class="social-links">
-            <a href="https://api.whatsapp.com/send/?phone=5547991581015" target="_blank" title="Peça pelo WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.facebook.com/RotelliMassas" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/rotelli_massas" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://linktr.ee/rotellimassas" target="_blank" aria-label="Linktree"><i class="fa-solid fa-link"></i></a>
+            <div class="social-links">
+                <a href="https://api.whatsapp.com/send/?phone=5547991581015" target="_blank" title="Peça pelo WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/RotelliMassas" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/rotelli_massas" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linktr.ee/rotellimassas" target="_blank" aria-label="Linktree"><i class="fa-solid fa-link"></i></a>
+            </div>
+
+            <button class="menu-hamburguer" onclick="toggleMenuMobile()" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
         </div>
     </header>
 
@@ -92,11 +104,11 @@
 
                 <div class="carousel-track" id="track-massas">
                     
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="capeletti" data-preco="45.90">
                         <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2359_jpg.jpg" alt="Prato de Capeletti" class="massa-img">
                         <h2 class="massa-titulo">Capeletti</h2>
                         <p class="massa-descricao">Massa artesanal com recheios saborosos.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -106,11 +118,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="ravioli" data-preco="48.90">
                         <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2363_jpg.jpg" alt="Prato de Ravioli" class="massa-img">
                         <h2 class="massa-titulo">Ravioli</h2>
                         <p class="massa-descricao">Massa delicada com recheios variados.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -121,11 +133,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="nhoque" data-preco="35.00">
                         <img src="https://rotellimassas.com/wp-content/uploads/2024/07/IMG_2399_jpg.jpg" alt="Prato de Nhoque" class="massa-img">
                         <h2 class="massa-titulo">Nhoque</h2>
                         <p class="massa-descricao">Massa macia e saborosa.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -134,11 +146,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="canelones" data-preco="42.00">
                         <img src="https://rotellimassas.com/wp-content/uploads/2024/07/03-4.png" alt="Prato de Canelones" class="massa-img">
                         <h2 class="massa-titulo">Canelones</h2>
                         <p class="massa-descricao">Massa enrolada com recheios clássicos.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -148,11 +160,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="pierogi" data-preco="38.00">
                         <img src="https://cms-bomgourmet.s3.amazonaws.com/bomgourmet%2F2023%2F05%2F04231346%2F1-1.jpg" alt="Prato de Pirog de Ricota" class="massa-img">
                         <h2 class="massa-titulo">Pierogi de Ricota</h2>
                         <p class="massa-descricao">Massa com inspiração no leste europeu.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -161,11 +173,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="tortei" data-preco="40.00">
                         <img src="https://rotellimassas.com/wp-content/uploads/2024/07/07-4.png" alt="Prato de Tortei de Abóbora" class="massa-img">
                         <h2 class="massa-titulo">Tortei de Abóbora</h2>
                         <p class="massa-descricao">O equilíbrio perfeito entre doce e salgado.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -174,11 +186,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="talharim" data-preco="25.00">
                         <img src="https://tradicaoditalia.com.br/wp-content/uploads/2022/05/fresh-pasta-gdcb514dfb_1920-1.jpg" alt="Talharim" class="massa-img">
                         <h2 class="massa-titulo">Talharim</h2>
                         <p class="massa-descricao">Massa clássica italiana com textura perfeita para absorver molhos.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>                
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>                
 
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -187,11 +199,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="esp-espinafre" data-preco="28.00">
                         <img src="https://receitasgalo.com.br/images/receitas/53/galo-imagem-receitas-macarrao-com-molho-de-espinafre-share.jpg" alt="Espaguete de Espinafre" class="massa-img">
                         <h2 class="massa-titulo">Espaguete de Espinafre</h2>
                         <p class="massa-descricao">Saúdavel e saborosa com um toque de cor. Perfeito para jantares especiais</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>  
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>  
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -200,11 +212,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="massa-canelone" data-preco="22.00">
                         <img src="https://sabores-new.s3.amazonaws.com/public/2024/11/canelone-a-bolonhesa.jpg" alt="Massas para Canelone" class="massa-img">
                         <h2 class="massa-titulo">Canelone</h2>
                         <p class="massa-descricao">Massa macia e saborosa, perfeita para recheios deliciosos.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>  
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>  
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -213,11 +225,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="massa-lasanha" data-preco="22.00">
                         <img src="https://portaledicase.com/wp-content/uploads/2023/03/lasanha-com-carne-moida.jpg" alt="Massas para Lasanha" class="massa-img">
                         <h2 class="massa-titulo">Lasanha</h2>
                         <p class="massa-descricao">Base perfeita para lasanhas caseiras, elevando o sabor do seu prato.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>  
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>  
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -226,11 +238,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="massa-pastel" data-preco="18.00">
                         <img src="https://cms-bomgourmet.s3.amazonaws.com/bomgourmet%2F2022%2F10%2F04141140%2Fbigstock-Pastel-Brazilian-snack-Tradi-440756489.jpg" alt="Massas para Pastel" class="massa-img">
                         <h2 class="massa-titulo">Pastel</h2>
                         <p class="massa-descricao">Massa leve e crocante, pronta para ser recheada.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>  
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>  
 
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -239,11 +251,11 @@
                         </div>
                     </article>
 
-                    <article class="massa-card">
+                    <article class="massa-card" data-id="esp-tradicional" data-preco="20.00">
                         <img src="https://www.paganinigastronomia.com.br/blog/wp-content/uploads/2024/01/SPAGHETTI-MOLHO-DE-TOMATE-02.jpg" alt="Espaguete Tradicional" class="massa-img">
                         <h2 class="massa-titulo">Espaguete Tradicional</h2>
                         <p class="massa-descricao">Opção clássica para pratos saborosos e especiais.</p>
-                        <span class="btn-sublinhado">Ver recheios <i class="fa-solid fa-arrow-right"></i></span>  
+                        <span class="btn-sublinhado">Ver detalhes <i class="fa-solid fa-arrow-right"></i></span>  
                         
                         <div class="recheios-escondidos" style="display: none;">
                             <div class="recheios-linha">
@@ -255,7 +267,8 @@
                 </div> <div class="carousel-dots"></div>
                 
                 <button class="carousel-btn next-btn" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
-            </div> </section>
+            </div> 
+        </section>
 
         <div id="modal-produto" class="modal-overlay" role="dialog" aria-modal="true">
             <div class="modal-content">
@@ -268,6 +281,14 @@
                             <h2 id="modal-titulo" class="modal-titulo-novo"></h2>
                             <p id="modal-descricao" class="modal-desc-nova"></p>
                         </div>
+                    </div>
+
+                    <div class="opcoes-compra" style="margin-top: 20px;">
+                        <div id="modal-select-container"></div>
+
+                        <button id="btn-modal-comprar" style="width: 100%; background-color: var(--cor-primaria); color: white; padding: 12px; border: none; border-radius: 20px; cursor: pointer; font-size: 1.1rem; font-weight: bold; margin-bottom: 10px;">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
                     </div>
 
                     <div id="modal-recheios-container" class="modal-recheios-box"></div>
@@ -311,11 +332,34 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Rotelli Massas. Todos os direitos reservados.</p>
+            <p>© 2026 Rotelli Massas. Todos os direitos reservados. | <a href="privacidade.html" style="color: inherit; text-decoration: underline;">Política de Privacidade</a></p>
+            <p style="font-size: 0.85rem; margin-top: 10px; color: var(--texto-rodape-dark);">
+                Rotelli Massas LTDA | CNPJ: 06.979.100/0001-98
+            </p>
         </div>
     </footer>
 
+    <div class="cart-overlay" id="cart-overlay" onclick="fecharCarrinho()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Seu Pedido</h2>
+            <button class="close-cart" onclick="fecharCarrinho()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>SubTotal:</span>
+                <span id="cart-total-price">R$ 0,00</span>
+            </div>
+            <button class="btn-finalizar" onclick="finalizarWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Fazer Pedido
+            </button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
+
+    <div id="toast-container" class="toast-container"></div>
 </body>
 </html>
