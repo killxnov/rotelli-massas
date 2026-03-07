@@ -333,6 +333,16 @@
     margin-bottom: 50px; 
 }
 
+
+
+
+.media-links { display: flex; gap: 70px; align-items: center; justify-content: center;}
+.media-links a { color: rgba(255, 255, 255, 0.7); font-size: 3rem; text-decoration: none; transition: all 0.3s ease; }
+.media-links a:hover { transform: translateY(-3px); color: var(--texto-branco); }
+.media-links a:hover i.fa-facebook-f { color: #1877F2; }
+.media-links a:hover i.fa-instagram { color: #E4405F; }
+.media-links a:hover i.fa-whatsapp { color: #25D366; }
+
 /* ----- RESPONSIVIDADE ----- */
 @media (max-width: 1024px) {
     .massa-card { flex: 0 0 calc((100% / 2.5) - 20px); }

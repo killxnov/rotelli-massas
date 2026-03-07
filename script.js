@@ -29,6 +29,8 @@ sr.reveal('.segredo-container', { scale: 0.9, duration: 1200 });
 sr.reveal('.section-header', { origin: 'top' });
 sr.reveal('.carousel-wrapper', { delay: 200, origin: 'bottom', distance: '40px' });
 
+sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
+
 
 /* ----- NAVEGAÇÃO ATIVA E CENTRALIZAÇÃO DE SCROLL ----- */
 

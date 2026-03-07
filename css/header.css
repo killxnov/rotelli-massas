@@ -52,12 +52,14 @@
     gap: 25px; /* Espaço exato entre carrinho e redes sociais */
 }
 
+/*
 .social-links { display: flex; gap: 20px; align-items: center; }
 .social-links a { color: rgba(255, 255, 255, 0.7); font-size: 1.2rem; text-decoration: none; transition: all 0.3s ease; }
 .social-links a:hover { transform: translateY(-3px); color: var(--texto-branco); }
 .social-links a:hover i.fa-facebook-f { color: #1877F2; }
 .social-links a:hover i.fa-instagram { color: #E4405F; }
 .social-links a:hover i.fa-whatsapp { color: #25D366; }
+*/
 
 .menu-hamburguer {
     display: none; /* Sempre invisível no PC */
