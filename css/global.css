@@ -242,6 +242,112 @@ section {
     font-size: 1.3rem;
 }
 
+/* =========================================
+   AVISO DE COOKIES (LGPD)
+   ========================================= */
+.cookie-banner {
+    position: fixed;
+    bottom: -150%; /* Fica escondido lá embaixo inicialmente */
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-principal); /* Fundo creme da Rotelli */
+    border-top: 1px solid #e0dbce;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    z-index: 999999; /* Fica acima de tudo */
+    transition: bottom 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 20px 0;
+}
+
+/* Classe que o JS ativa para o banner subir */
+.cookie-banner.mostrar {
+    bottom: 0;
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--texto-forte);
+    line-height: 1.5;
+}
+
+.cookie-content a {
+    color: var(--cor-primaria);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.cookie-botoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0; /* Impede os botões de esmagarem o texto */
+}
+
+.btn-cookie {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-aceitar {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+.btn-aceitar:hover { background-color: #7a1c24; }
+
+.btn-rejeitar {
+    background-color: transparent;
+    color: var(--texto-forte);
+    border: 1px solid #ccc;
+}
+.btn-rejeitar:hover { background-color: #f5f5f5; }
+
+.btn-cookie-fechar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--texto-suave);
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+    transition: color 0.2s;
+}
+.btn-cookie-fechar:hover { color: var(--cor-primaria); }
+
+/* Ajustes para o celular */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    .cookie-botoes {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .btn-cookie-fechar {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
+}
+
 /* Ajuste para não encostar nas bordas em telas de celular */
 @media (max-width: 768px) {
     .toast-container {

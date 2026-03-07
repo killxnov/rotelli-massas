@@ -490,4 +490,35 @@ sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
         }
     };
     
+/* =========================================
+   AVISO DE COOKIES (LGPD)
+   ========================================= */
+    const cookieBanner = document.getElementById('cookie-banner');
+    const btnAceitarCookies = document.getElementById('btn-aceitar-cookies');
+    const btnRejeitarCookies = document.getElementById('btn-rejeitar-cookies');
+    const btnFecharCookies = document.getElementById('btn-fechar-cookies');
+
+    if (cookieBanner) {
+        // Verifica na memória do navegador se o cliente já respondeu antes
+        const consentimento = localStorage.getItem('rotelli_cookie_consent');
+
+        // Se ele nunca respondeu, mostra a barra com 1 segundo de atraso (para ficar elegante)
+        if (!consentimento) {
+            setTimeout(() => {
+                cookieBanner.classList.add('mostrar');
+            }, 1000);
+        }
+
+        // Função para esconder a barra e gravar a escolha
+        function fecharBanner(escolha) {
+            localStorage.setItem('rotelli_cookie_consent', escolha); // Salva 'aceito', 'rejeitado' ou 'fechado'
+            cookieBanner.classList.remove('mostrar');
+        }
+
+        // Conecta os botões
+        if (btnAceitarCookies) btnAceitarCookies.addEventListener('click', () => fecharBanner('aceito'));
+        if (btnRejeitarCookies) btnRejeitarCookies.addEventListener('click', () => fecharBanner('rejeitado'));
+        if (btnFecharCookies) btnFecharCookies.addEventListener('click', () => fecharBanner('fechado'));
+    }
+
 });
