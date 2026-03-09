@@ -29,10 +29,13 @@ sr.reveal('.segredo-container', { scale: 0.9, duration: 1200 });
 sr.reveal('.section-header', { origin: 'top' });
 sr.reveal('.carousel-wrapper', { delay: 200, origin: 'bottom', distance: '40px' });
 
+// 6. Animando a Seção de Redes Sociais
 sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
 
 
-/* ----- NAVEGAÇÃO ATIVA E CENTRALIZAÇÃO DE SCROLL ----- */
+/* =========================================
+    MENU DE NAVEGAÇÃO INTELIGENTE (SCROLL + CLICK)
+   ========================================= */
 
     const secoes = document.querySelectorAll("section[id], header[id], div[id]");
     const linksMenu = document.querySelectorAll(".nav-link");
@@ -97,7 +100,9 @@ sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
     window.addEventListener("scroll", atualizaLinhaMenu);
     atualizaLinhaMenu(); 
 
-/* ----- CARROSSEL DE PRODUTOS ----- */
+/* =========================================
+    CARROSSEL INTELIGENTE COM AUTO-SCROLL E Dots DINÂMICOS
+   ========================================= */
 
     const track = document.getElementById('track-massas');
     const prevBtn = document.querySelector('.prev-btn');
@@ -293,6 +298,7 @@ sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
 /* =========================================
    SMART NAVBAR (ESCONDE NO SCROLL MOBILE)
    ========================================= */
+
     let ultimoScroll = 0;
     const navbarSmart = document.querySelector('.navbar');
 
@@ -464,6 +470,7 @@ sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
     /* =========================================
    MENU HAMBÚRGUER (MOBILE)
    ========================================= */
+
     window.toggleMenuMobile = function() {
         const navMenu = document.getElementById('nav-menu');
         const iconeMenu = document.querySelector('.menu-hamburguer i');
@@ -493,6 +500,7 @@ sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
 /* =========================================
    AVISO DE COOKIES (LGPD)
    ========================================= */
+   
     const cookieBanner = document.getElementById('cookie-banner');
     const btnAceitarCookies = document.getElementById('btn-aceitar-cookies');
     const btnRejeitarCookies = document.getElementById('btn-rejeitar-cookies');
@@ -520,5 +528,4 @@ sr.reveal('.media-container', { scale: 0.9, duration: 1200 });
         if (btnRejeitarCookies) btnRejeitarCookies.addEventListener('click', () => fecharBanner('rejeitado'));
         if (btnFecharCookies) btnFecharCookies.addEventListener('click', () => fecharBanner('fechado'));
     }
-
 });

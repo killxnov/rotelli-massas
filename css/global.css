@@ -1,4 +1,6 @@
-/* ----- VARIAVEIS GLOBAIS ----- */
+/* =========================================
+    VARIÁVEIS DE CORES (IDENTIDADE VISUAL)
+   ========================================= */
 
 :root {
     /* Identidade Visual */
@@ -26,7 +28,11 @@
     --texto-rodape-dark: #888888;    /* Copyright do rodapé */
 }
 
-/* ----- RESET E CONFIGURAÇÕES GERAIS ----- */
+/* =========================================
+    ESTILIZAÇÃO GLOBAL
+      (Configurações básicas, reset de margens, fontes, etc)
+      (Também inclui estilos para páginas de texto como Privacidade e Termos)
+   ========================================= */
 
 * {
     margin: 0;
@@ -117,23 +123,6 @@ section {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
 }
 
-
-/* ----- RESPONSIVIDADE ----- */
-
-@media (max-width: 768px) {
-    html {
-        scroll-padding-top: 170px;
-    }
-
-    section {
-        padding: 60px 0;
-        overflow: hidden;
-    }
-    .titulo-secao {
-        font-size: 2rem;
-    }
-}
-
 /* =========================================
    PÁGINAS DE TEXTO (Privacidade, Termos, etc)
    ========================================= */
@@ -189,18 +178,10 @@ section {
     margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-    .container-legal {
-        padding: 30px 20px;
-    }
-    .container-legal h1 {
-        font-size: 2rem;
-    }
-}
-
 /* =========================================
    SISTEMA DE NOTIFICAÇÕES (TOAST) - NO TOPO
    ========================================= */
+
 .toast-container {
     position: fixed;
     top: 30px; /* Agora fica no topo */
@@ -245,6 +226,7 @@ section {
 /* =========================================
    AVISO DE COOKIES (LGPD)
    ========================================= */
+
 .cookie-banner {
     position: fixed;
     bottom: -150%; /* Fica escondido lá embaixo inicialmente */
@@ -328,8 +310,41 @@ section {
 }
 .btn-cookie-fechar:hover { color: var(--cor-primaria); }
 
-/* Ajustes para o celular */
+
+
+/* =========================================
+RESOLUÇÃO DE PROBLEMAS DE NAVEGAÇÃO (HEADER, CARRINHO, COOKIES, LEGAL, NOTIFICAÇÕES, ETC)
+   ========================================= */
+
+
+
 @media (max-width: 768px) {
+
+    /* ----- RESPONSIVIDADE ----- */
+
+    html {
+        scroll-padding-top: 170px;
+    }
+
+    section {
+        padding: 60px 0;
+        overflow: hidden;
+    }
+    .titulo-secao {
+        font-size: 2rem;
+    }
+
+    /* ----- LEGAL ----- */
+
+    .container-legal {
+        padding: 30px 20px;
+    }
+    .container-legal h1 {
+        font-size: 2rem;
+    }
+
+    /* ----- COOKIES ----- */
+
     .cookie-content {
         flex-direction: column;
         text-align: center;
@@ -346,10 +361,9 @@ section {
         top: 10px;
         right: 15px;
     }
-}
 
-/* Ajuste para não encostar nas bordas em telas de celular */
-@media (max-width: 768px) {
+    /* ----- NOTIFICAÇÕES (TOASTS) ----- */
+
     .toast-container {
         top: 20px;
     }

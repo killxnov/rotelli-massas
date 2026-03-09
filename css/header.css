@@ -1,4 +1,7 @@
-/* ----- BARRA DE NAVEGACAO (ESTILO GLASSMORPHISM) ----- */
+/* =========================================
+    ESTILIZAÇÃO DO HEADER (NAVEGAÇÃO PRINCIPAL)
+      (Inclui logo, links de navegação, carrinho e redes sociais)
+   ========================================= */
 
 .navbar {
     display: flex;

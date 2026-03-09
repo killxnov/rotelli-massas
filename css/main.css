@@ -300,6 +300,8 @@
     color: var(--texto-padrao);
 }
 
+/* ----- PONTINHOS DO CARROSSEL ----- */
+
 .carousel-dots {
     display: flex;
     justify-content: center;
@@ -334,7 +336,7 @@
 }
 
 
-
+/* ----- LINKS DE REDES SOCIAIS ----- */
 
 .media-links { display: flex; gap: 70px; align-items: center; justify-content: center;}
 .media-links a { color: rgba(255, 255, 255, 0.7); font-size: 3rem; text-decoration: none; transition: all 0.3s ease; }
